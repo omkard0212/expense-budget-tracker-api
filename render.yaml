@@ -1,0 +1,13 @@
+services:
+  - type: web
+    name: expense-tracker-api
+    env: python
+    buildCommand: "./build.sh"
+    startCommand: "gunicorn expense_tracker.wsgi:application"
+    envVars:
+      - key: SECRET_KEY
+        generateValue: true
+      - key: DEBUG
+        value: false
+      - key: PYTHON_VERSION
+        value: 3.10.0
